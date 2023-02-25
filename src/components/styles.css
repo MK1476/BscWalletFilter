@@ -19,9 +19,17 @@ body {
 
 .right-side {
   flex-grow: 1;
-  overflow: auto;
-  justify-content: center;
-  align-items: center;
+
+ 
+
+  display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 84%;
+margin-top: 20px;
+
+
 }
 
 form {
@@ -56,29 +64,47 @@ input[type="number"] {
   font-size: 1rem;
   width: 100%;
 }
-
+.copy-icon {
+  display: none;
+  color: rgb(3, 3, 3);
+  cursor: pointer;
+}
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #f1f1f1;
+}
 .table-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+  height: 630px;
+  flex-direction: column;
+  /* padding-top: 700px; */
+  overflow-y: scroll;
+   
+  
+  animation: fadeIn 0.8s ease;
 }
   .table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 35px;
-    margin-bottom: 100px;
+  
+     margin-top: 35px; 
+   
+  }
+  .tbody{
+    width: 100%;
+    /* set a fixed height for tbody */
+  
   }
   
   .table th,
   .table td {
     padding: 8px;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
   }
   
   .table th {
-    background-color: #f2f2f2;
+    background-color: #fffcfcf5;
   }
   
   .loader {
@@ -89,7 +115,7 @@ input[type="number"] {
     height: 50px;
     animation: spin 1s linear infinite;
     margin: auto;
-    margin-top: 2rem;
+    
   }
   
   @keyframes spin {
@@ -132,13 +158,12 @@ input[type="number"] {
   content: "";
   display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  left: 430px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #FFFFFF;
+  border: 3px solid rgba(205, 28, 28, 0.3);
+  border-top-color: #0f0f0fcc;
   animation: spin 1s linear infinite;
 }
 
@@ -150,4 +175,20 @@ input[type="number"] {
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+.download-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.download-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.395);
 }

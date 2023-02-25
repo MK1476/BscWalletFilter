@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import fetchAddresses from './fetchAddresses';
 import './styles.css';
+import MyCopyIcon  from "./copyicon.png";
 
 
 
@@ -13,6 +14,7 @@ function BscWalletFilter() {
   const [recentMonths, setRecentMonths] = useState(1);
   const [loading, setLoading] = useState(false);
   const [addressList, setAddressList] = useState([]);
+  const [copy,setCopy]=useState(false)
   
   
 
@@ -25,8 +27,44 @@ const handleFetchAddresses =  async () => {
       .catch((error) => console.log(error));
   };
 
-
+  const downloadCSV =()=> {
+    
   
+    // Convert the addresses to a CSV string
+    const csv = "data:text/csv;charset=utf-8," + addressList.join("\n");
+  
+    // Download the CSV file
+    const link = document.createElement("a");
+    link.setAttribute("href", encodeURI(csv));
+    link.setAttribute("download", "addresses.csv");
+    link.click();
+  }
+  
+  
+// Get all table rows
+const rows = document.querySelectorAll('tbody tr');
+
+// Add event listeners to each row
+rows.forEach(row => {
+  // Show copy icon when row is hovered over
+  row.addEventListener('mouseenter', () => {
+    row.querySelector('.copy-icon').style.display = 'table-cell';
+    
+  });
+  // Hide copy icon when mouse leaves row
+  row.addEventListener('mouseleave', () => {
+    row.querySelector('.copy-icon').style.display = 'none';
+    setCopy(false);
+  });
+  // Copy address when copy icon is clicked
+  row.querySelector('.copy-icon').addEventListener('click', () => {
+    const address = row.querySelector('td:nth-child(2)').textContent;
+    navigator.clipboard.writeText(address);
+    console.log(address);
+    setCopy(true);
+  });
+});
+
 
 
   return (
@@ -78,13 +116,16 @@ const handleFetchAddresses =  async () => {
         <table className="table">
           <thead>
             <tr>
-              <th>Address</th>
+              <th>S.No</th>
+              <th>Filtered Addresses</th>
             </tr>
           </thead>
           <tbody>
-            {addressList.map((address) => (
+            {addressList.map((address,index) => (
               <tr key={address}>
+                <td>{index+1}</td>
                 <td>{address}</td>
+                <td className="copy-icon"><img src={MyCopyIcon} width="15px" height="15px" alt = '.'/> {copy? 'copied!':'copy'}</td>
               </tr>
             ))}
           </tbody>
@@ -96,6 +137,10 @@ const handleFetchAddresses =  async () => {
       {getAddressListForPage().map((address, index) => (
         <div key={index}>{address}</div>
       ))} */}
+      <div className="download-container">
+  <button className="download-button" onClick={downloadCSV}>Download</button>
+</div>
+
         </div>
         
       ) : (
