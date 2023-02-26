@@ -220,12 +220,12 @@ rows.forEach(row => {
       <form className="form">
       <label className="form-label">
           Web3 URL:
-          <input className="form-input" type="text" value={web3Url} onChange={(e) => setWeb3Url(e.target.value)} />
+          <input className="form-input" type="text" value={web3Url} onChange={(e) => setWeb3Url(e.target.value) } placeholder='Web3 Api Url'/>
         </label>
         <br />
         <label className="form-label">
           Bscscan API Key:
-          <input className="form-input" type="text" value={bscscanApiKey} onChange={(e) => setBscscanApiKey(e.target.value)} />
+          <input className="form-input" type="text" value={bscscanApiKey} onChange={(e) => setBscscanApiKey(e.target.value)} placeholder='Bscscan Api Key'/>
         </label>
         <br />
         <label className="form-label">
