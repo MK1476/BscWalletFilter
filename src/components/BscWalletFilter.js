@@ -43,8 +43,13 @@ const handleFetchAddresses =  async () => {
     
 
     fetchAddresses(web3Url, bscscanApiKey, minBalance, numAddresses, recentMonths,1,numAddresses)
-      .then((result) => {setAddressList(result); setLoading(false);})
-      .catch((error) => console.log(error));
+      .then((result) => {
+         if(result)alert('Something is wrong!');
+         else{setAddressList(result);
+          }
+          setLoading(false);
+      })
+      .catch((error) => {console.log(error);alert(error);});
   };
 
   const handleDownloadClick = async () => {
@@ -141,7 +146,7 @@ rows.forEach(row => {
         </label>
         <br />
         <label className="form-label">
-          How recent in months:
+          How recent is the last transaction (in months):
           <input className="form-input" type="number" value={recentMonths} onChange={(e) => setRecentMonths(e.target.value)} />
         </label>
         <br />

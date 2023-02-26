@@ -1,12 +1,16 @@
 import React from "react";
 import "./Navbar.css";
 import { FaGithub } from 'react-icons/fa';
+import logo from './ewallet.png';
+
 
 function Navbar() {
   return (
     <nav className="navbar">
+       
       <div className="navbar__container">
-        <a href="/" className="navbar__logo">Bsc Wallet Address Filter</a>
+      
+        <a href="/" className="navbar__logo" ><img src={logo} alt="logo" style={{ width: '30px', height: '30px' }} />Bsc Wallet Address Filter</a>
         <ul className="navbar__menu">
           
           <li className="navbar__item">
