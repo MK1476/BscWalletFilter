@@ -295,7 +295,7 @@ thead {
     background-color: #fff;
     padding-left: 0%;
     margin: 30px;
-    width: 400px;
+    width: 90vw;
     padding: 4rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
@@ -309,7 +309,7 @@ thead {
     background-color: #fff;
     margin: 30px;
     height: 200px;
-    width: 90%;
+    width: 90vw;
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
