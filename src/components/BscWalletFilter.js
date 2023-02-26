@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import fetchAddresses from './fetchAddresses';
 import './styles.css';
 import MyCopyIcon  from "./copyicon.png";
-
+import axios from 'axios';  
 
 
 
@@ -15,7 +15,27 @@ function BscWalletFilter() {
   const [loading, setLoading] = useState(false);
   const [addressList, setAddressList] = useState([]);
   const [copy,setCopy]=useState(false)
-  
+  const [addressb, setAddress] = useState('');
+  const [balanceb, setBalance] = useState('');
+  const [loading2, setLoading2] = useState(false);
+
+  const handleSubmit = async (event) => {
+    setBalance('');
+    event.preventDefault();
+    try {
+      setLoading2(true)
+      const response = await axios.get(`https://api.bscscan.com/api?module=account&action=balance&address=${addressb}&tag=latest&apikey=${bscscanApiKey}`);
+      setBalance(response.data.result);
+      setLoading2(false)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleChange = (event) => {
+    setAddress(event.target.value);
+  };
+
   
 
 const handleFetchAddresses =  async () => {
@@ -49,7 +69,7 @@ rows.forEach(row => {
   // Show copy icon when row is hovered over
   row.addEventListener('mouseenter', () => {
     row.querySelector('.copy-icon').style.display = 'table-cell';
-    
+    console.log('hovered');
   });
   // Hide copy icon when mouse leaves row
   row.addEventListener('mouseleave', () => {
@@ -68,6 +88,7 @@ rows.forEach(row => {
 
 
   return (
+    <div className='container-main'>
     <div className="container">
       <form className="form">
       <label className="form-label">
@@ -150,6 +171,29 @@ rows.forEach(row => {
       </div>
       
     </div>
+    <form2>
+      <div className='abar'>
+        <input
+          type="text"
+          value={addressb}
+          onChange={handleChange}
+          placeholder="Enter Address"
+        />
+        
+        <button className='button' type="button" onClick={handleSubmit}>Check Balance</button>
+        </div>
+        <div className='cbview'>
+      {!loading2 ? (balanceb && (
+        <div className="balance">
+         <h1>Balance : </h1>
+          <p style={{ fontSize: '24px', fontWeight: 'bold' }}>
+            {balanceb / 10 ** 18} BNB
+          </p>
+        </div>
+      )):(<div>loading...</div>)}</div>
+      </form2>
+
+</div>
 
     
   );

@@ -11,10 +11,10 @@ function Navbar() {
             <a href="/" className="navbar__link">Home</a>
           </li>
           <li className="navbar__item">
-            <a href="/about" className="navbar__link">About</a>
+            <a href="/balance" className="navbar__link">Check Balance</a>
           </li>
           <li className="navbar__item">
-            <a href="/contact" className="navbar__link">Contact</a>
+            <a href="/transactions" className="navbar__link">View Transactions</a>
           </li>
         </ul>
       </div>

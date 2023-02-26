@@ -30,7 +30,7 @@ await fetch(url)
 .then(data => {
   const result = data.result;
   transactions = result.map(obj => obj.from);
-  console.log("add2 : "+transactions[2]);
+  console.log("add2 : "+transactions[1]);
 })
 .catch(error => console.error(error));
 
@@ -60,17 +60,20 @@ await fetch(url)
 .then(response => response.json())
 .then(data => {
    balance = data.result;
-   console.log("balance :"+ balance);
+   if ( balance/10**18>balanceWei/10**18) {
+    console.log("balance :"+ balance);
+console.log('mb : '+balanceWei);
+console.log(balance+"is less than"+balanceWei+"check :"+ balance<balanceWei);
+          validAddresses.push(addresses[j]);
+          i++;
+  }else{
+
+  }
   
 })
 .catch(error => console.error(error));
 
-      if (balance>balanceWei) {//transactions.length !== 0 && 
-              validAddresses.push(addresses[j]);
-              i++;
-      }else{
-
-      }
+      
     };
 
     return Array.from(validAddresses);
