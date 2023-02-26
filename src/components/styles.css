@@ -396,7 +396,7 @@ thead {
   
     /* Base styles for the button */
   .button {
-    padding: 10px 20px;
+    padding: 10px 10px;
     margin: 10px;
     cursor: pointer;
     border-radius: 5px;
