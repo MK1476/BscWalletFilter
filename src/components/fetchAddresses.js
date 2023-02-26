@@ -4,7 +4,7 @@ const Web3 = require('web3');
 
 
 
-const fetchAddresses = async (web3Url, apiKey, minimumBalance, numAddresses, numMonths, pageNum, pageSize) => {
+const fetchAddresses = async (web3Url, apiKey, minimumBalance, numAddresses, numMonths, pageNum, pageSize)  {
   try {
     
     const balanceWei = Web3.utils.toWei(minimumBalance.toString(), "ether");
