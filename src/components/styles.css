@@ -431,7 +431,7 @@ thead {
     content: "";
     display: block;
     position: absolute;
-    left: 430px;
+    left: 20vw;
     width: 20px;
     height: 20px;
     border-radius: 50%;
