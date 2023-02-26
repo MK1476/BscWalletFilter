@@ -83,4 +83,4 @@ console.log(balance+"is less than"+balanceWei+"check :"+ balance<balanceWei);
     
   }
 }
-module.exports = fetchAddresses;
+export default fetchAddresses;
