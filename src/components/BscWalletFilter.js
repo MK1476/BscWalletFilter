@@ -3,7 +3,7 @@ import fetchAddresses from './fetchAddresses';
 import './styles.css';
 import MyCopyIcon  from "./copyicon.png";
 import axios from 'axios';  
-
+import { FaDownload } from 'react-icons/fa';
 
 
 function BscWalletFilter() {
@@ -47,6 +47,35 @@ const handleFetchAddresses =  async () => {
       .catch((error) => console.log(error));
   };
 
+  const handleDownloadClick = async () => {
+    try {
+      
+      const response = await axios.get('https://api.bscscan.com/api', {
+        params: {
+          module: 'account',
+          action: 'txlist',
+          address: addressb,
+          sort: 'desc',
+          apikey: bscscanApiKey
+        }
+      });
+      const data = response.data;
+      const fileName = 'transactions.json';
+      const json = JSON.stringify(data);
+      const blob = new Blob([json], {type: 'application/json'});
+      const href =  URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = href;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      
+    }
+  };
   const downloadCSV =()=> {
     
   
@@ -159,7 +188,7 @@ rows.forEach(row => {
         <div key={index}>{address}</div>
       ))} */}
       <div className="download-container">
-  <button className="download-button" onClick={downloadCSV}>Download</button>
+  <button className="download-button" onClick={downloadCSV}>Download Addresses <FaDownload /></button>
 </div>
 
         </div>
@@ -171,7 +200,7 @@ rows.forEach(row => {
       </div>
       
     </div>
-    <form2>
+    <div className='form2'>
       <div className='abar'>
         <input
           type="text"
@@ -181,6 +210,7 @@ rows.forEach(row => {
         />
         
         <button className='button' type="button" onClick={handleSubmit}>Check Balance</button>
+        <button className='button' type="button" onClick={handleDownloadClick}>Download Transactions</button>
         </div>
         <div className='cbview'>
       {!loading2 ? (balanceb && (
@@ -191,7 +221,7 @@ rows.forEach(row => {
           </p>
         </div>
       )):(<div>loading...</div>)}</div>
-      </form2>
+      </div>
 
 </div>
 
