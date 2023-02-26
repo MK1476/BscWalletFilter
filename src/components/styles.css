@@ -256,7 +256,8 @@ thead {
     display: flex;
     flex-direction: column;
     
-    width: 80vw;
+    width: 100vw;
+    
     
     height: 100vh;
     
