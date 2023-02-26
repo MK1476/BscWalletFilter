@@ -7,8 +7,8 @@ import { FaDownload } from 'react-icons/fa';
 
 
 function BscWalletFilter() {
-  const [web3Url, setWeb3Url] = useState('https://bsc-dataseed.binance.org/');
-  const [bscscanApiKey, setBscscanApiKey] = useState('8KRK7GQEFXZN7DD74TQ69QSJMPWTJSK2RQ');
+  const [web3Url, setWeb3Url] = useState('');
+  const [bscscanApiKey, setBscscanApiKey] = useState('');
   const [minBalance, setMinBalance] = useState(2);
   const [numAddresses, setNumAddresses] = useState(10);
   const [recentMonths, setRecentMonths] = useState(1);
