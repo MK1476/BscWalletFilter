@@ -259,7 +259,7 @@ thead {
     
     height: 100vh;
     
-    overflow: auto;
+    overflow-y: auto;
   }
   .container-main {
     display: flex;
