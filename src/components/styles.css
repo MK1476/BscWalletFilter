@@ -471,7 +471,7 @@ thead {
   .abar{
     display: flex;
     flex-direction: row;
-    width: 900px;
+    width: 90%;
   }
   
   }
