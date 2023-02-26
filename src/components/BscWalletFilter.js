@@ -306,9 +306,10 @@ rows.forEach(row => {
           onChange={handleChange}
           placeholder="Enter Address"
         />
-        
+        <div className='db2'>
         <button className='button' type="button" onClick={handleSubmit}>Check Balance</button>
         <button className='button' type="button" onClick={handleDownloadClick}>Download Transactions</button>
+        </div>
         </div>
         <div className='cbview'>
       {!loading2 ? (balanceb && (

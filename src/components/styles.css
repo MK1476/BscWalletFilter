@@ -311,7 +311,7 @@ thead {
     background-color: #fff;
     margin: 30px;
     height: 200px;
-    width: 78vw;
+    width: 75vw;
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
@@ -472,7 +472,7 @@ thead {
   }
   .abar{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 90%;
   }
   
