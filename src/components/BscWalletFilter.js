@@ -75,7 +75,7 @@ await fetch(url)
         const balanceUrl = `https://api.bscscan.com/api?module=account&action=balance&address=${addresses[j]}&tag=latest&apikey=${apiKey}`;
       let balance;
       
-      
+      const addi = addresses[j];
       await fetch(balanceUrl)
 .then(response => response.json())
 .then(data => {
@@ -84,7 +84,7 @@ await fetch(url)
     console.log("balance :"+ balance);
 console.log('mb : '+balanceWei);
 console.log(balance+"is less than"+balanceWei+"check :"+ balance<balanceWei);
-          validAddresses.push(addresses[j]);
+          validAddresses.push(addi);
           i++;
   }else{
 
