@@ -12,24 +12,33 @@ BscWalletFilter is a simple web application built with React and Web3, designed 
 * Responsive design for desktop and mobile devices
 
 ## Installation and Usage
-To use My Crypto Wallet, simply visit the live demo site in your web browser.
+To use BscWalletFilter, simply visit the live demo site in your web browser.
 
 If you want to run the application locally, you can follow these steps:
 
-Clone the repository: git clone https://github.com/username/my-crypto-wallet.git
-Install dependencies: npm install
-Start the development server: npm start
-Open the application in your web browser at http://localhost:3000
+Clone the repository:
+```
+git clone https://github.com/username/BscWalletFilter.git
+```
+Install dependencies:
+```
+npm install
+```
+Start the development server: 
+```
+npm start
+```
+Open the application in your web browser at https://bscwalletfilter.netlify.app/
 ## Technologies Used
 BscWalletFilter is built with the following technologies:
 
-*Web3
-*Node
-*React
-*Axios
-*Bootstrap
+* Web3
+* Node
+* React
+* Axios
+* Bootstrap
 ## Credits
 BscWalletFilter is created by [Your Name Here]. It uses data from the Binance Smart Chain and the BscScan API.
 
 ## License
-My Crypto Wallet is released under the MIT License.
+BscWalletFilter is released under the MIT License.
